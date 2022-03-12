@@ -2,18 +2,18 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("LoginRegisterTest")]
+[assembly: AssemblyTitle("LoginRegistrationAutomationTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LoginRegisterTest")]
+[assembly: AssemblyProduct("LoginRegistrationAutomationTest")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("ecfa4d8d-6582-4ea6-8160-dc86be5d4e8f")]
+[assembly: Guid("fc6b4926-e6e9-4470-a348-00091a2b8bf2")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]

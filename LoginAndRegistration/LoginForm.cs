@@ -24,15 +24,15 @@ namespace LoginAndRegistration
 
         private void button2_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = "";
-            txtPassword.Text = "";
-            txtUsername.Focus();
+            LoginTxtUsername.Text = "";
+            LoginTxtPassword.Text = "";
+            LoginTxtUsername.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             con.Open();
-            string login = "SELECT * FROM tbl_users WHERE username= '" + txtUsername.Text + "' and password= '" + txtPassword.Text + "'";
+            string login = "SELECT * FROM tbl_users WHERE username= '" + LoginTxtUsername.Text + "' and password= '" + LoginTxtPassword.Text + "'";
             cmd = new OleDbCommand(login, con);
             OleDbDataReader dr = cmd.ExecuteReader();
 
@@ -45,9 +45,9 @@ namespace LoginAndRegistration
             else
             {
                 MessageBox.Show("Invalid Username or Password, Please Try Again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                txtUsername.Focus();
+                LoginTxtUsername.Text = "";
+                LoginTxtPassword.Text = "";
+                LoginTxtUsername.Focus();
             }
         }
 
@@ -55,11 +55,11 @@ namespace LoginAndRegistration
         {
             if (CheckboxShowPas.Checked)
             {
-                txtPassword.PasswordChar = '\0';         
+                LoginTxtPassword.PasswordChar = '\0';         
             }
             else
             {
-                txtPassword.PasswordChar = '•';
+                LoginTxtPassword.PasswordChar = '•';
             }
         }
 
@@ -67,6 +67,16 @@ namespace LoginAndRegistration
         {
             new RegisterForm().Show();
             this.Hide();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

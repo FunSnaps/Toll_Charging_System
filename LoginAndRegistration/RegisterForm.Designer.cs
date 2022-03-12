@@ -40,7 +40,8 @@ namespace LoginAndRegistration
             this.RegisterButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.BackToLoginButton = new System.Windows.Forms.Label();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -171,17 +172,31 @@ namespace LoginAndRegistration
             this.label5.TabIndex = 10;
             this.label5.Text = "Already have an account?";
             // 
-            // label6
+            // BackToLoginButton
             // 
-            this.label6.AutoSize = true;
-            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.label6.Location = new System.Drawing.Point(98, 494);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "back to Login\r\n";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.BackToLoginButton.AutoSize = true;
+            this.BackToLoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackToLoginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.BackToLoginButton.Location = new System.Drawing.Point(98, 494);
+            this.BackToLoginButton.Name = "BackToLoginButton";
+            this.BackToLoginButton.Size = new System.Drawing.Size(92, 17);
+            this.BackToLoginButton.TabIndex = 11;
+            this.BackToLoginButton.Text = "back to Login\r\n";
+            this.BackToLoginButton.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.BackColor = System.Drawing.Color.White;
+            this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
+            this.ExitButton.Location = new System.Drawing.Point(248, 12);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(25, 30);
+            this.ExitButton.TabIndex = 12;
+            this.ExitButton.Text = "X";
+            this.ExitButton.UseVisualStyleBackColor = false;
+            this.ExitButton.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // RegisterForm
             // 
@@ -189,7 +204,8 @@ namespace LoginAndRegistration
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(285, 544);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.ExitButton);
+            this.Controls.Add(this.BackToLoginButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.RegisterButton);
@@ -227,7 +243,8 @@ namespace LoginAndRegistration
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label BackToLoginButton;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
 
