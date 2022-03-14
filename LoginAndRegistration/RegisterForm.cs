@@ -85,7 +85,7 @@ namespace LoginAndRegistration
             else if (txtPassword.Text == txtConPassword.Text)
             {
                 con.Open();
-                string register = "INSERT INTO tbl_users VALUES ('" + txtUsername.Text + "','" + txtPassword.Text + "')";
+                string register = $"INSERT INTO tbl_users VALUES ('{txtUsername.Text}', '{txtPassword.Text}', 'driver')";
                 cmd = new OleDbCommand(register, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -95,7 +95,7 @@ namespace LoginAndRegistration
                 txtConPassword.Text = "";
 
                 MessageBox.Show("Your Account has been successfully Created!", "Registration Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new DashboardForm().Show();
+                new DashboardForm(txtUsername.Text).Show();
                 this.Hide();
             }
             else

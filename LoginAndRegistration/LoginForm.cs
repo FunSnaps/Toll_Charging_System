@@ -38,9 +38,21 @@ namespace LoginAndRegistration
 
             if (dr.Read() == true)
             {
+                //After checking user login will pass the use obj and get their roles
+                try
+                {
+                    object[] meta = new object[10];
+                    dr.GetValues(meta);
+                    new DashboardForm(dr.GetString(2)).Show();
+                    this.Hide();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
                 //The Form which will appear after loggin in
-                new DashboardForm().Show();
-                this.Hide();
+                //new DashboardForm().Show();
+                //this.Hide();
             }
             else
             {
