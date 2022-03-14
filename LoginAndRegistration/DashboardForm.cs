@@ -16,5 +16,11 @@ namespace LoginAndRegistration
         {
             InitializeComponent();
         }
+
+        private void paymentsBtn_Click(object sender, EventArgs e)
+        {
+            new PayTollPg().Show();
+            this.Hide();
+        }
     }
 }
