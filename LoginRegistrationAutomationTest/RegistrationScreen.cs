@@ -13,7 +13,8 @@ namespace LoginRegistrationAutomationTest
         [TestMethod]
         public void RegisterUser_NewUser_RegistrationSuccess()
         {
-            var application = Application.Launch(@"E:\Uni\UniDocs\Year3\Case Studies in SoftwareDesign\Assessment\L&R\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
+            //var application = Application.Launch(@"E:\Uni\UniDocs\Year3\Case Studies in SoftwareDesign\Assessment\L&R\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
+            var application = Application.Launch(@"D:\Uni Work\3rd Year\CSSD\LoginAndRegistration\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
 
             var mainWindow = application.GetMainWindow(new UIA3Automation());
             ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
@@ -33,7 +34,8 @@ namespace LoginRegistrationAutomationTest
         [TestMethod]
         public void ClearFields_FieldsFilledUp_ClearedFields()
         {
-            var application = Application.Launch(@"E:\Uni\UniDocs\Year3\Case Studies in SoftwareDesign\Assessment\L&R\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
+            //var application = Application.Launch(@"E:\Uni\UniDocs\Year3\Case Studies in SoftwareDesign\Assessment\L&R\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
+            var application = Application.Launch(@"D:\Uni Work\3rd Year\CSSD\LoginAndRegistration\LoginAndRegistration\LoginAndRegistration\bin\Debug\LoginAndRegistration.exe");
 
             var mainWindow = application.GetMainWindow(new UIA3Automation());
             ConditionFactory cf = new ConditionFactory(new UIA3PropertyLibrary());
