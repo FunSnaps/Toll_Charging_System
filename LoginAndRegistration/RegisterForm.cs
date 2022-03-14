@@ -16,51 +16,12 @@ namespace LoginAndRegistration
         public RegisterForm()
         {
             InitializeComponent();
+
         }
 
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_user.mdb");
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUsername_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
 
         public void CheckboxShowPas_CheckedChanged(object sender, EventArgs e)
         {
@@ -85,18 +46,28 @@ namespace LoginAndRegistration
             else if (txtPassword.Text == txtConPassword.Text)
             {
                 con.Open();
-                string register = $"INSERT INTO tbl_users VALUES ('{txtUsername.Text}', '{txtPassword.Text}', 'driver')";
-                cmd = new OleDbCommand(register, con);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                try
+                {
+                    string register = $"INSERT INTO tbl_users VALUES ('{txtUsername.Text}', '{txtPassword.Text}', 'driver')";
+                    cmd = new OleDbCommand(register, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-                txtUsername.Text = "";
-                txtPassword.Text = "";
-                txtConPassword.Text = "";
+                    txtUsername.Text = "";
+                    txtPassword.Text = "";
+                    txtConPassword.Text = "";
 
-                MessageBox.Show("Your Account has been successfully Created!", "Registration Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new DashboardForm(txtUsername.Text).Show();
-                this.Hide();
+                    MessageBox.Show("Your Account has been successfully Created!", "Registration Successful!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new LoginForm().Show();
+                    this.Hide();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show("Registration Error !");
+                    Console.WriteLine(err);
+                    con.Close();
+                    button2_Click(sender, e);
+                }
             }
             else
             {
@@ -124,6 +95,15 @@ namespace LoginAndRegistration
         private void button1_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void buttonlistener(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine(e.KeyChar);
+            if (e.KeyChar == 13)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

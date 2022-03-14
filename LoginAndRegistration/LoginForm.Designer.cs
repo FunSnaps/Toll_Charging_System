@@ -116,6 +116,7 @@ namespace LoginAndRegistration
             this.LoginTxtPassword.PasswordChar = '•';
             this.LoginTxtPassword.Size = new System.Drawing.Size(216, 28);
             this.LoginTxtPassword.TabIndex = 16;
+            this.LoginTxtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonlistener);
             // 
             // label3
             // 
@@ -159,13 +160,14 @@ namespace LoginAndRegistration
             // 
             // ExitButton
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.White;
+            this.ExitButton.BackColor = System.Drawing.Color.Red;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.ExitButton.Location = new System.Drawing.Point(252, 12);
+            this.ExitButton.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitButton.ForeColor = System.Drawing.Color.White;
+            this.ExitButton.Location = new System.Drawing.Point(247, 12);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(25, 30);
+            this.ExitButton.Size = new System.Drawing.Size(34, 34);
             this.ExitButton.TabIndex = 24;
             this.ExitButton.Text = "X";
             this.ExitButton.UseVisualStyleBackColor = false;
@@ -195,7 +197,6 @@ namespace LoginAndRegistration
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

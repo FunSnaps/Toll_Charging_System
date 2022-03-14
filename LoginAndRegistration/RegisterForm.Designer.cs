@@ -74,7 +74,7 @@ namespace LoginAndRegistration
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(216, 28);
             this.txtUsername.TabIndex = 2;
-            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged_1);
+            this.txtUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonlistener);
             // 
             // txtPassword
             // 
@@ -87,6 +87,7 @@ namespace LoginAndRegistration
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(216, 28);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonlistener);
             // 
             // label3
             // 
@@ -96,7 +97,6 @@ namespace LoginAndRegistration
             this.label3.Size = new System.Drawing.Size(66, 17);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtConPassword
             // 
@@ -109,7 +109,7 @@ namespace LoginAndRegistration
             this.txtConPassword.PasswordChar = '•';
             this.txtConPassword.Size = new System.Drawing.Size(216, 28);
             this.txtConPassword.TabIndex = 6;
-            this.txtConPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtConPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonlistener);
             // 
             // label4
             // 
@@ -119,7 +119,6 @@ namespace LoginAndRegistration
             this.label4.Size = new System.Drawing.Size(120, 17);
             this.label4.TabIndex = 5;
             this.label4.Text = "Confirm Password";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // CheckboxShowPas
             // 
@@ -186,13 +185,13 @@ namespace LoginAndRegistration
             // 
             // ExitButton
             // 
-            this.ExitButton.BackColor = System.Drawing.Color.White;
+            this.ExitButton.BackColor = System.Drawing.Color.Red;
             this.ExitButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.ExitButton.Location = new System.Drawing.Point(248, 12);
+            this.ExitButton.ForeColor = System.Drawing.Color.White;
+            this.ExitButton.Location = new System.Drawing.Point(239, 12);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(25, 30);
+            this.ExitButton.Size = new System.Drawing.Size(34, 34);
             this.ExitButton.TabIndex = 12;
             this.ExitButton.Text = "X";
             this.ExitButton.UseVisualStyleBackColor = false;
@@ -224,7 +223,7 @@ namespace LoginAndRegistration
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.buttonlistener);
             this.ResumeLayout(false);
             this.PerformLayout();
 

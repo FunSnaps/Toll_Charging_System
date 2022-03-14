@@ -81,14 +81,18 @@ namespace LoginAndRegistration
             this.Hide();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ExitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void buttonlistener(object sender, KeyPressEventArgs e)
+        {
+            Console.WriteLine(e.KeyChar);
+            if (e.KeyChar == 13)
+            {
+                button1_Click(sender, e);
+            }
         }
     }
 }

@@ -39,5 +39,10 @@ namespace LoginAndRegistration
         {
             //takes you to operator page
         }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
