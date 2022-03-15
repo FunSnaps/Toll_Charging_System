@@ -11,5 +11,6 @@ namespace LoginAndRegistration
         public string Name { get; set; }
         public bool Paid { get; set; }
         public string Car { get; set; }
+        public string NumberPlate { get; set; }
     }
 }

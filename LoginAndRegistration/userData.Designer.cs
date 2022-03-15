@@ -38,6 +38,8 @@ namespace LoginAndRegistration
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -135,11 +137,33 @@ namespace LoginAndRegistration
             this.label8.TabIndex = 8;
             this.label8.Text = "User Data:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(263, 133);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 20);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "No. Plate: ";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(350, 133);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 20);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "label10";
+            // 
             // userData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 263);
+            this.ClientSize = new System.Drawing.Size(527, 263);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -168,5 +192,7 @@ namespace LoginAndRegistration
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

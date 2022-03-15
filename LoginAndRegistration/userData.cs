@@ -23,6 +23,15 @@ namespace LoginAndRegistration
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
 
+        private static Random random = new Random();
+
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
         private void userData_Load(object sender, EventArgs e)
         {
             con.Open();
@@ -33,7 +42,7 @@ namespace LoginAndRegistration
             {
                 if (dr.GetValue(2).ToString() == "driver")
                 {
-                    list.Add(new users() { Name = dr.GetValue(0).ToString(), Paid = (bool)dr.GetValue(4), Car = dr.GetValue(3).ToString() });
+                    list.Add(new users() { Name = dr.GetValue(0).ToString(), Paid = (bool)dr.GetValue(4), Car = dr.GetValue(3).ToString(), NumberPlate = RandomString(5) });
                 }
             }
             con.Close();
@@ -41,7 +50,8 @@ namespace LoginAndRegistration
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";
-            foreach(users u in list)
+            label10.Text = "";
+            foreach (users u in list)
             {
                 listBox1.Items.Add(u.Name);
             }
@@ -57,6 +67,7 @@ namespace LoginAndRegistration
             label1.Text = list[listBox1.SelectedIndex].Name.ToString();
             label2.Text = list[listBox1.SelectedIndex].Paid.ToString();
             label3.Text = list[listBox1.SelectedIndex].Car.ToString();
+            label10.Text = list[listBox1.SelectedIndex].NumberPlate.ToString();
         }
 
         private void label5_Click(object sender, EventArgs e)
