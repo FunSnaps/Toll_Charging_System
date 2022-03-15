@@ -19,6 +19,7 @@ namespace LoginAndRegistration
         }
 
         List<users> list = new List<users>();
+        private static List<paymenthistory> pList = new List<paymenthistory>();
         OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_user.mdb");
         OleDbCommand cmd = new OleDbCommand();
         OleDbDataAdapter da = new OleDbDataAdapter();
@@ -30,6 +31,24 @@ namespace LoginAndRegistration
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static string convertDate(DateTime date)
+        {
+            return date.ToString("dd/M/yyyy");
+        }
+
+        public static string findPayment(string date)
+        {
+            string temp = "";
+            for (int x = 0; x < pList.Count; x++)
+            {
+                if (pList[x].invoiceDate == date)
+                {
+                    temp = x.ToString();
+                }
+            }
+            return temp;
         }
 
         private void userData_Load(object sender, EventArgs e)
@@ -64,10 +83,37 @@ namespace LoginAndRegistration
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label1.Text = list[listBox1.SelectedIndex].Name.ToString();
-            label2.Text = list[listBox1.SelectedIndex].Paid.ToString();
-            label3.Text = list[listBox1.SelectedIndex].Car.ToString();
-            label10.Text = list[listBox1.SelectedIndex].NumberPlate.ToString();
+            listBox2.Items.Clear();
+            pList.RemoveAll(x => x.Name == list[listBox1.SelectedIndex].Name);
+            con.Open();
+            string login = "SELECT * FROM tbl_history";
+            cmd = new OleDbCommand(login, con);
+            OleDbDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                if (dr.GetValue(1).ToString() == list[listBox1.SelectedIndex].Name.ToString())
+                {
+                    pList.Add(new paymenthistory() { Name = dr.GetValue(1).ToString(), Paid = (bool)dr.GetValue(4), invoiceDate = convertDate((DateTime)dr.GetValue(2)), Amount = dr.GetValue(3).ToString() });
+                }
+            }
+            con.Close();
+
+            foreach (paymenthistory p in pList)
+            {
+                if(p.Name == list[listBox1.SelectedIndex].Name.ToString())
+                {
+                    listBox2.Items.Add(p.invoiceDate);
+                }
+            }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            label1.Text = list[listBox1.SelectedIndex].Name;
+            label3.Text = list[listBox1.SelectedIndex].Car;
+            label10.Text = RandomString(5);
+            label2.Text = pList[int.Parse(findPayment(listBox2.SelectedItem.ToString()))].Paid.ToString();
+            label11.Text = "£" + pList[int.Parse(findPayment(listBox2.SelectedItem.ToString()))].Amount;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -96,6 +142,16 @@ namespace LoginAndRegistration
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }
