@@ -12,9 +12,15 @@ namespace LoginAndRegistration
 {
     public partial class DashboardForm : Form
     {
-        public DashboardForm(string role)
+        string username;
+        string role;
+        public DashboardForm(String[] user)
         {
             InitializeComponent();
+             username = user[0];
+             role = user[2];
+
+
             label3.Text = role;
             //if its driver it will display the driver button 
             if (role == "driver")
@@ -27,17 +33,18 @@ namespace LoginAndRegistration
             {
                 button2.Show();
                 button1.Hide();
-            }
+            } 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //takes you to driver payments page
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //takes you to operator page
+            new PayToll(username).Show();
+            this.Hide();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

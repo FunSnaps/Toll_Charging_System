@@ -38,21 +38,18 @@ namespace LoginAndRegistration
 
             if (dr.Read() == true)
             {
-                //After checking user login will pass the use obj and get their roles
+                //After checking user login will pass the user obj and get their roles
                 try
                 {
-                    object[] meta = new object[10];
-                    dr.GetValues(meta);
-                    new DashboardForm(dr.GetString(2)).Show();
+                    String[] user = new string[5];
+                    dr.GetValues(user);
+                    new DashboardForm(user).Show();
                     this.Hide();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
                 }
-                //The Form which will appear after loggin in
-                //new DashboardForm().Show();
-                //this.Hide();
             }
             else
             {
@@ -60,7 +57,9 @@ namespace LoginAndRegistration
                 LoginTxtUsername.Text = "";
                 LoginTxtPassword.Text = "";
                 LoginTxtUsername.Focus();
+                con.Close();
             }
+            
         }
 
         private void CheckboxShowPas_CheckedChanged(object sender, EventArgs e)
@@ -88,7 +87,6 @@ namespace LoginAndRegistration
 
         private void buttonlistener(object sender, KeyPressEventArgs e)
         {
-            Console.WriteLine(e.KeyChar);
             if (e.KeyChar == 13)
             {
                 button1_Click(sender, e);
