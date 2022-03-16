@@ -20,7 +20,7 @@ namespace LoginAndRegistration
              username = user[0];
              role = user[2];
 
-
+            label5.Text = UppercaseFirst(role);
             label3.Text = role;
             //if its driver it will display the driver button 
             if (role == "driver")
@@ -49,6 +49,22 @@ namespace LoginAndRegistration
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        string UppercaseFirst(string s)
+        {
+            // Check for empty string.
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        private void ExitButton_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }

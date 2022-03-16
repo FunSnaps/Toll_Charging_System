@@ -225,7 +225,6 @@ namespace LoginAndRegistration
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(392, 450);
-            this.ControlBox = false;
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
