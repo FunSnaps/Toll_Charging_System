@@ -29,6 +29,7 @@ namespace LoginAndRegistration
         OleDbDataAdapter da = new OleDbDataAdapter();
 
         private static Random random = new Random();
+        private paymenthistory[] payments;
 
         public static string RandomString(int length)
         {
@@ -105,17 +106,20 @@ namespace LoginAndRegistration
             {
                 if (p.Name == list[listBox1.SelectedIndex].Name.ToString())
                 {
-                    listBox2.Items.Add(p.invoiceDate);
+                    listBox2.Items.Add(p);
                 }
             }
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblName.Text = username;
-            lblPrice.Text = price;
-            lblDate.Text = invoice;
-            lblPaid.Text = isPaid;
+
+            paymenthistory p = (paymenthistory)listBox2.SelectedItem;
+
+            lblName.Text = p.Name;
+            lblPrice.Text = p.Amount;
+            lblDate.Text = p.invoiceDate;
+            lblPaid.Text = p.Paid;
         }
 
         private void ExitButton_Click(object sender, EventArgs e)

@@ -8,6 +8,11 @@ namespace LoginAndRegistration
 {
     class paymenthistory
     {
+        public override string ToString()
+        {
+            return invoiceDate;
+        }
+
         public string Name { get; set; }
         public string Paid { get; set; }
         public string invoiceDate { get; set; }

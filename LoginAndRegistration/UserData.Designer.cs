@@ -37,13 +37,13 @@ namespace LoginAndRegistration
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblPaid = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.ExitButton = new System.Windows.Forms.Button();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblPaid = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -138,12 +138,48 @@ namespace LoginAndRegistration
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.groupBox1.Location = new System.Drawing.Point(60, 313);
+            this.groupBox1.Location = new System.Drawing.Point(17, 313);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 120);
+            this.groupBox1.Size = new System.Drawing.Size(353, 120);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Data";
+            // 
+            // lblPaid
+            // 
+            this.lblPaid.AutoSize = true;
+            this.lblPaid.Location = new System.Drawing.Point(73, 101);
+            this.lblPaid.Name = "lblPaid";
+            this.lblPaid.Size = new System.Drawing.Size(52, 16);
+            this.lblPaid.TabIndex = 35;
+            this.lblPaid.Text = "label2";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(73, 74);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(52, 16);
+            this.lblDate.TabIndex = 34;
+            this.lblDate.Text = "label2";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(73, 47);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(52, 16);
+            this.lblPrice.TabIndex = 33;
+            this.lblPrice.Text = "label2";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(73, 19);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(48, 16);
+            this.lblName.TabIndex = 27;
+            this.lblName.Text = "name";
             // 
             // groupBox2
             // 
@@ -182,42 +218,6 @@ namespace LoginAndRegistration
             this.ExitButton.Text = "X";
             this.ExitButton.UseVisualStyleBackColor = false;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(73, 19);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(48, 16);
-            this.lblName.TabIndex = 27;
-            this.lblName.Text = "name";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(73, 47);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(52, 16);
-            this.lblPrice.TabIndex = 33;
-            this.lblPrice.Text = "label2";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(73, 74);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(52, 16);
-            this.lblDate.TabIndex = 34;
-            this.lblDate.Text = "label2";
-            // 
-            // lblPaid
-            // 
-            this.lblPaid.AutoSize = true;
-            this.lblPaid.Location = new System.Drawing.Point(73, 101);
-            this.lblPaid.Name = "lblPaid";
-            this.lblPaid.Size = new System.Drawing.Size(52, 16);
-            this.lblPaid.TabIndex = 35;
-            this.lblPaid.Text = "label2";
             // 
             // UserData
             // 

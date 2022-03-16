@@ -93,7 +93,7 @@ namespace LoginAndRegistration
             this.reciptList.ItemHeight = 16;
             this.reciptList.Location = new System.Drawing.Point(6, 19);
             this.reciptList.Name = "reciptList";
-            this.reciptList.Size = new System.Drawing.Size(104, 148);
+            this.reciptList.Size = new System.Drawing.Size(124, 148);
             this.reciptList.TabIndex = 2;
             this.reciptList.SelectedIndexChanged += new System.EventHandler(this.reciptList_SelectedIndexChanged);
             // 
@@ -105,7 +105,7 @@ namespace LoginAndRegistration
             this.groupBox1.Controls.Add(this.paymentBtn);
             this.groupBox1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(116)))), ((int)(((byte)(86)))), ((int)(((byte)(174)))));
-            this.groupBox1.Location = new System.Drawing.Point(125, 19);
+            this.groupBox1.Location = new System.Drawing.Point(136, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(324, 145);
             this.groupBox1.TabIndex = 8;
