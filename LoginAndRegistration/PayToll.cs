@@ -13,31 +13,50 @@ namespace LoginAndRegistration
 {
     public partial class PayToll : Form
     {
+        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_user.mdb");
+        OleDbCommand cmd = new OleDbCommand();
+        OleDbDataAdapter da = new OleDbDataAdapter();
         string username;
         public PayToll(string name)
         {
             InitializeComponent();
-            paymentBtn.Enabled = false;
+            paymentBtn.Hide();
             username = name;
-        }
 
-        OleDbConnection con = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db_user.mdb");
-        OleDbCommand cmd = new OleDbCommand();
-        OleDbDataAdapter da = new OleDbDataAdapter();
+            con.Open();
+            try
+            {
+                OleDbCommand cmd = new OleDbCommand("SELECT * FROM tbl_payments", con);
+                OleDbDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (dr.GetString(0) == username)
+                    {
+                        reciptList.Items.Add(new Recipt(dr.GetString(1), dr.GetString(2), dr.GetString(3)));
+                    }
+                }
+                con.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Update Error!");
+                Console.WriteLine(err);
+                con.Close();
+            }
+        }
 
 
         private void paymentBtn_Click(object sender, EventArgs e)
         {
             Recipt recipt = (Recipt)reciptList.SelectedItem;
             recipt.setPaid();
-            paymentBtn.Enabled = false;
+            paymentBtn.Visible = false;
             paymentMadeLbl.Text = "Paid : " + recipt.getPaid().ToString();
 
             con.Open();
             try
             {
-                //string update = $"UPDATE tbl_payments SET paid = " & recipt.getPaid().ToString() & " WHERE date = " & recipt.getDate().ToString("G");
-                cmd = new OleDbCommand("UPDATE tbl_payments SET paid = " + recipt.getPaid().ToString() + " WHERE journeydate = " + recipt.getDate().ToString("G"), con);
+                OleDbCommand cmd = new OleDbCommand("UPDATE tbl_payments SET paid = '" + recipt.getPaid().ToString() + "' WHERE journeydate = '" + recipt.getDate().ToString("G") + "'", con);
                 Console.WriteLine(cmd);
                 //cmd = new OleDbCommand(update, con);
                 cmd.ExecuteNonQuery();
@@ -54,12 +73,29 @@ namespace LoginAndRegistration
         private void reciptList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Recipt recipt = (Recipt)reciptList.SelectedItem;
-            paymentBtn.Enabled = !recipt.getPaid();
-            priceLbl.Text = "Price : " + recipt.getCost().ToString("c");
-            dateLbl.Text = "Date of Journey : " + recipt.getDate().ToString("g");
-            paymentMadeLbl.Text = "Paid : " + recipt.getPaid().ToString();
-        }
+            if (recipt.getPaid().ToString() == "True")
+            {
+                paymentBtn.Hide();
+            }
+            paymentBtn.Show();
+            try
+            {
+                priceLbl.Text = "Price : " + recipt.getCost().ToString("c");
+                dateLbl.Text = "Date of Journey : " + recipt.getDate().ToString("g");
+                paymentMadeLbl.Text = "Paid : " + recipt.getPaid().ToString();
 
+                if (recipt.getPaid().ToString() == "True")
+                {
+                    paymentBtn.Hide();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Please click on a payment");
+                Console.WriteLine(err);
+            }
+            
+        }
         private void simulateToll_Click(object sender, EventArgs e)
         {
             Recipt recipt = new Recipt();
@@ -80,6 +116,11 @@ namespace LoginAndRegistration
                 con.Close();
             }
 
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
@@ -103,6 +144,13 @@ public class Recipt
         generateCost();
         generateDate();
         paid = false;
+    }
+
+    public Recipt(string inDate, string inCost, string inPaid)
+    {
+        date = DateTime.Parse(inDate);
+        cost = Double.Parse(inCost, System.Globalization.NumberStyles.Currency);
+        paid = Convert.ToBoolean(inPaid);
     }
 
     public double getCost()

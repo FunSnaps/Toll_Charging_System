@@ -33,33 +33,40 @@ namespace LoginAndRegistration
         {
             con.Open();
             string login = "SELECT * FROM tbl_users WHERE username= '" + LoginTxtUsername.Text + "' and password= '" + LoginTxtPassword.Text + "'";
-            cmd = new OleDbCommand(login, con);
-            OleDbDataReader dr = cmd.ExecuteReader();
-
-            if (dr.Read() == true)
+            try
             {
-                //After checking user login will pass the user obj and get their roles
-                try
+                cmd = new OleDbCommand(login, con);
+                OleDbDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read() == true)
                 {
-                    String[] user = new string[5];
-                    dr.GetValues(user);
-                    new DashboardForm(user).Show();
-                    this.Hide();
+                    //After checking user login will pass the user obj and get their roles
+                    try
+                    {
+                        String[] user = new string[5];
+                        dr.GetValues(user);
+                        new DashboardForm(user).Show();
+                        this.Hide();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(ex);
+                    MessageBox.Show("Invalid Username or Password, Please Try Again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LoginTxtUsername.Text = "";
+                    LoginTxtPassword.Text = "";
+                    LoginTxtUsername.Focus();
                 }
             }
-            else
+            catch (Exception err)
             {
-                MessageBox.Show("Invalid Username or Password, Please Try Again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LoginTxtUsername.Text = "";
-                LoginTxtPassword.Text = "";
-                LoginTxtUsername.Focus();
-                con.Close();
+                Console.WriteLine(err);
             }
             
+            con.Close();
         }
 
         private void CheckboxShowPas_CheckedChanged(object sender, EventArgs e)
